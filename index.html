@@ -46,13 +46,26 @@
 	    .tw footer p {
 		float: left;
 	    }
+
+	    .modal {
+		/* display: none; */
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+		background-color: rgba(0,0,0,0.5);
+		text-align: center;
+	    }
 	</style>
     </head>
     <body>
 	<article class="tw">
 	    <header>
 		<img src="https://picsum.photos/200">
-		<h1>Title<br><small>@title</small></h1>
+		<h1 data-modal-target-id="1">Title<br><small>@title</small></h1>
 	    </header>
 	    <p>
 		aa
@@ -72,5 +85,24 @@
 		</ul>
 	    </footer>
 	</article>
+	<div class="modal" data-modal-id="1">
+	    <p>
+		aaa
+	    </p>
+	</div>
+	<script>
+	    var hs = document.querySelectorAll(".tw h1[data-modal-target-id]");
+	    hs.forEach((h) => {
+		    let tId = h.dataset["modalTargetId"];
+		    let m = document.querySelector(".modal[data-modal-id='" + tId.toString() + "']");
+		    if (m !== null)
+		    {
+			h.addEventListener("click", () => { m.style.display = "block" });
+		    }
+		}
+	    )
+	    var m = document.getElementsByClassName("modal");
+	    m[0].addEventListener("click", (e) => {e.target.style.display = "none"})
+	</script>
     </body>
 </html>
