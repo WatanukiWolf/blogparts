@@ -59,6 +59,30 @@
 		background-color: rgba(0,0,0,0.5);
 		text-align: center;
 	    }
+	    .modal .content {
+		border-radius: 10px;
+		width: 500px;
+		background-color: white;
+		margin: 0 auto;
+	    }
+	    .modal header {
+		text-align: left;
+		margin: 10px;
+	    }
+	    .modal header h1 {
+		font-size: 1.2em;
+		vertical-align: middle;
+		margin: 0px;
+		display: inline-block;
+	    }
+	    .modal header img {
+		width: 2.5em;
+		height: 2.5em;
+		border-radius: 25px;
+		vertical-align: middle;
+		margin: 10px;
+		display: inline-block;
+	    }
 	</style>
     </head>
     <body>
@@ -86,9 +110,12 @@
 	    </footer>
 	</article>
 	<div class="modal" data-modal-id="1">
-	    <p>
-		aaa
-	    </p>
+	    <div class="content">
+		<header>
+		    <img src="https://picsum.photos/200">
+		    <h1 data-modal-target-id="1">Title<br><small>@title</small></h1>
+		</header>
+	    </div>
 	</div>
 	<script>
 	    var hs = document.querySelectorAll(".tw h1[data-modal-target-id]");
@@ -97,12 +124,11 @@
 		    let m = document.querySelector(".modal[data-modal-id='" + tId.toString() + "']");
 		    if (m !== null)
 		    {
+			m.addEventListener("click", () => { m.style.display = "none" });
 			h.addEventListener("click", () => { m.style.display = "block" });
 		    }
 		}
 	    )
-	    var m = document.getElementsByClassName("modal");
-	    m[0].addEventListener("click", (e) => {e.target.style.display = "none"})
 	</script>
     </body>
 </html>
