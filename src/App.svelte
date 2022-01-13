@@ -5,7 +5,7 @@ let modalOn = false;
 $: modalStyle = "display: " + (modalOn? "block": "none") + ";";
 
 function toggleModalWindow(e) {
-    modalOn != modalOn; 
+    modalOn = !modalOn; 
 }
 </script>
 
@@ -36,7 +36,7 @@ function toggleModalWindow(e) {
 	    </ul>
 	</footer>
     </article>
-    <div class="modal" style={modalStyle}>
+    <div on:click={toggleModalWindow} class="modal" style={modalStyle}>
 	<div class="content">
 	    <header>
 		<img src="https://picsum.photos/200">
