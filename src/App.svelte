@@ -1,12 +1,11 @@
-<script>
-import Account from './class/Account.ts';
+<script lang='typescript'>
+import ModalWindow from './ModalWindow.svelte';
+import Account from './class/Account';
 
-// user: Account
-export let user;
-export let body;
+export let user: Account;
+export let body: string;
 
-let modalOn = false;
-$: modalStyle = "display: " + (modalOn? "block": "none") + ";";
+let modalOn: boolean = false;
 $: paragraphs = body.split('\n');
 
 function toggleModalWindow(e) {
@@ -38,18 +37,7 @@ function toggleModalWindow(e) {
 	    </ul>
 	</footer>
     </article>
-    <div on:click={toggleModalWindow} class="modal" style={modalStyle}>
-	<div class="content">
-	    <header>
-		<img src="https://picsum.photos/200">
-		<h1 data-modal-target-id="1">
-		    {user.name}<br>
-		    <small>@{user.id}</small>
-		</h1>
-	    </header>
-	</div>
-    </div>
-
+    <ModalWindow bind:modalOn={modalOn} user={user} />
 </main>
 
 <style>
@@ -96,42 +84,5 @@ function toggleModalWindow(e) {
     }
     .tw footer p {
 	float: left;
-    }
-
-    .modal {
-	/* display: none; */
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
-	overflow: auto;
-	background-color: rgba(0,0,0,0.5);
-	text-align: center;
-    }
-    .modal .content {
-	border-radius: 10px;
-	width: 500px;
-	background-color: white;
-	margin: 0 auto;
-    }
-    .modal header {
-	text-align: left;
-	margin: 10px;
-    }
-    .modal header h1 {
-	font-size: 1.2em;
-	vertical-align: middle;
-	margin: 0px;
-	display: inline-block;
-    }
-    .modal header img {
-	width: 2.5em;
-	height: 2.5em;
-	border-radius: 25px;
-	vertical-align: middle;
-	margin: 10px;
-	display: inline-block;
     }
 </style>
