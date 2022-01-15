@@ -1,6 +1,7 @@
 <script>
 export let id;
 export let name;
+export let paragraphs;
 let modalOn = false;
 $: modalStyle = "display: " + (modalOn? "block": "none") + ";";
 
@@ -18,12 +19,9 @@ function toggleModalWindow(e) {
 		<small>@{id}</small>
 	    </h1>
 	</header>
-	<p>
-	    aa
-	</p>
-	<p>
-	    bb
-	</p>
+	{#each paragraphs as p}
+	    <p>{p}</p>
+	{/each}
 	<footer>
 	    <time>2022-01-09</time>
 	    <hr>
