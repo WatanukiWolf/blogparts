@@ -4,7 +4,8 @@ const app = new App({
 	target: document.body,
 	props: {
 	    id: 'World',
-	    name: 'Hello'
+	    name: 'Hello',
+	    body: 'line1\nline2',
 	}
 });
 
