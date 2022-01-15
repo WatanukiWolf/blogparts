@@ -6,7 +6,8 @@ const app = new App({
 	props: {
 	    user: new Account({
 		id: 'World',
-		name: 'Hello'
+		name: 'Hello',
+		profile: 'I\'m Hello'
 	    }),
 	    body: 'line1\nline2',
 	}
