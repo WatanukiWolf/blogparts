@@ -1,10 +1,13 @@
 import App from './App.svelte';
+import Account from './class/Account';
 
 const app = new App({
 	target: document.body,
 	props: {
-	    id: 'World',
-	    name: 'Hello',
+	    user: new Account({
+		id: 'World',
+		name: 'Hello'
+	    }),
 	    body: 'line1\nline2',
 	}
 });
