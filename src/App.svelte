@@ -1,6 +1,8 @@
 <script>
-export let id;
-export let name;
+import Account from './class/Account.ts';
+
+// user: Account
+export let user;
 export let body;
 
 let modalOn = false;
@@ -17,8 +19,8 @@ function toggleModalWindow(e) {
 	<header>
 	    <img src="https://picsum.photos/200">
 	    <h1 on:click={toggleModalWindow}>
-		{name}<br>
-		<small>@{id}</small>
+		{user.name}<br>
+		<small>@{user.id}</small>
 	    </h1>
 	</header>
 	{#each paragraphs as p}
@@ -41,8 +43,8 @@ function toggleModalWindow(e) {
 	    <header>
 		<img src="https://picsum.photos/200">
 		<h1 data-modal-target-id="1">
-		    {name}<br>
-		    <small>@{id}</small>
+		    {user.name}<br>
+		    <small>@{user.id}</small>
 		</h1>
 	    </header>
 	</div>
