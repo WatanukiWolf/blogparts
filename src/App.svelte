@@ -1,9 +1,11 @@
 <script>
 export let id;
 export let name;
-export let paragraphs;
+export let body;
+
 let modalOn = false;
 $: modalStyle = "display: " + (modalOn? "block": "none") + ";";
+$: paragraphs = body.split('\n');
 
 function toggleModalWindow(e) {
     modalOn = !modalOn; 
