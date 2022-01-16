@@ -1,11 +1,10 @@
-
 class AccountProps {
     id: string;
     name: string;
     profile: string;
 }
 
-export default class Account {
+export class Account {
     private id_: string;
     private name_: string;
     private profile_: string;
