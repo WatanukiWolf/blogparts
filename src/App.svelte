@@ -37,7 +37,7 @@ function toggleModalWindow(e) {
 	    </ul>
 	</footer>
     </article>
-    <ModalWindow bind:modalOn={modalOn} user={user} />
+    <ModalWindow bind:on={modalOn} user={user} />
 </main>
 
 <style>
