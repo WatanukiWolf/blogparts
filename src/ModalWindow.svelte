@@ -2,14 +2,14 @@
 import Account from './class/Account';
 
 export let user: Account;
-export let modalOn: boolean = false;
+export let on: boolean = false;
 
-$: modalStyle = "display: " + (modalOn? "block": "none") + ";";
+$: modalStyle = "display: " + (on? "block": "none") + ";";
 $: paragraphs = user.profile.split('\n');
 </script>
 
 <div class="modal" style={modalStyle}>
-    <div class="content" on:click={e => {modalOn = !modalOn}}>
+    <div class="content" on:click={e => {on = !on}}>
 	<header>
 	    <img src="https://picsum.photos/200">
 	    <h1 data-modal-target-id="1">
