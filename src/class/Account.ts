@@ -8,6 +8,7 @@ export class Account {
     private id_: string;
     private name_: string;
     private profile_: string;
+    private stars_: object;
 
     constructor(prop: AccountProps) {
 	this.id_ = prop.id;
@@ -37,5 +38,12 @@ export class Account {
 
     set profile(value: string) {
 	this.profile_ = value;
+    }
+
+    get stars(): object {
+	// return this.stars_;
+	return {
+	    tw: 2
+	};
     }
 }
