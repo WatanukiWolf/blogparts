@@ -1,5 +1,5 @@
 <script lang='typescript'>
-import Account from './class/Account';
+import type { Account } from './class/Account';
 
 export let user: Account;
 export let on: boolean = false;
@@ -16,6 +16,9 @@ $: paragraphs = user.profile.split('\n');
 		{user.name}<br>
 		<small>@{user.id}</small>
 	    </h1>
+	    <p>
+	    {user.stars['tw']} follower{user.stars['tw'] == 1? '': 's'}
+	    </p>
 	</header>
 	{#each paragraphs as p}
 	    <p>{p}</p>
