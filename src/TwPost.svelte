@@ -1,5 +1,6 @@
 <script lang='typescript'>
 import type { TwPost } from './class/TwPost';
+import { push } from 'svelte-spa-router'
 
 export let post: TwPost;
 export let clickOnHeaderHandler: (e) => void = (e) => {};
@@ -24,7 +25,7 @@ export let clickOnHeaderHandler: (e) => void = (e) => {};
 	10 Shared, 1 Liked
 	</p>
 	<ul class="btn-group">
-	    <li><button>LIKE</button></li>
+	    <li><button on:click={() => push('/not_found')}>LIKE</button></li>
 	    <li><button>SHARE</button></li>
 	</ul>
     </footer>
