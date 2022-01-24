@@ -1,22 +1,34 @@
 <script lang='typescript'>
-import TwPost from './TwPost.svelte';
-import TwModalWindow from './TwModalWindow.svelte';
-import type { Account } from './class/Account';
-import type { TwPost as TwPostClass } from './class/TwPost';
+import Router from 'svelte-spa-router'
+import { wrap } from 'svelte-spa-router/wrap'
 
-export let user: Account;
-export let post: TwPostClass;
+import { Account } from './class/Account';
+import { TwPost }  from './class/TwPost';
 
-let modalOn: boolean = false;
+import Home from './Home.svelte'
+import NotFound from './NotFound.svelte'
 
-function toggleModalWindow(e) {
-    modalOn = !modalOn; 
+let helloworld = new Account({
+    id: 'World',
+    name: 'Hello',
+    profile: 'I\'m Hello'
+});
+let post = new TwPost({ text: 'line1\nline2' });
+post.attachAccount(helloworld);
+
+const routes = {
+    '/not_found': NotFound,
+    '*': wrap({
+	component: Home,
+	props: {
+	    user: helloworld,
+	    post: post
+	}}),
 }
 </script>
 
 <main>
-    <TwPost post={post} clickOnHeaderHandler={toggleModalWindow} />
-    <TwModalWindow bind:on={modalOn} user={user} />
+    <Router routes={routes} />
 </main>
 
 <style>
