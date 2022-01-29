@@ -1,5 +1,5 @@
 <script lang='typescript'>
-import type { Account } from './class/Account';
+import type { Account } from 'class/Account';
 
 export let user: Account;
 export let on: boolean = false;

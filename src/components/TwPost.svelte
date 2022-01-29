@@ -1,5 +1,5 @@
 <script lang='typescript'>
-import type { TwPost } from './class/TwPost';
+import type { TwPost } from 'class/TwPost';
 import { push } from 'svelte-spa-router'
 
 export let post: TwPost;

@@ -5,8 +5,8 @@ import { wrap } from 'svelte-spa-router/wrap'
 import { Account } from './class/Account';
 import { TwPost }  from './class/TwPost';
 
-import Home from './Home.svelte'
-import NotFound from './NotFound.svelte'
+import Home from './routes/Home.svelte'
+import NotFound from './routes/NotFound.svelte'
 
 let helloworld = new Account({
     id: 'World',
