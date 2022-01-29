@@ -7,6 +7,18 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 
+import alias from '@rollup/plugin-alias';
+
+const aliases = alias({
+    resolve: ['.svelte', '.js', '.ts'],
+    entries: [
+	{find: '', replacement: 'src/'},
+	{find: 'components', replacement: 'src/components'},
+	{find: 'routes', replacement: 'src/routes'},
+	{find: 'class', replacement: 'src/class'},
+    ]
+});
+
 const production = !process.env.ROLLUP_WATCH;
 
 function serve() {
@@ -65,6 +77,7 @@ export default {
 			inlineSources: !production,
 			rootDir: './src',
 		}),
+		aliases,
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
