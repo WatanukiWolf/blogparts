@@ -9,13 +9,16 @@ import css from 'rollup-plugin-css-only';
 
 import alias from '@rollup/plugin-alias';
 
+import json from '@rollup/plugin-json';
+
 const aliases = alias({
-    resolve: ['.svelte', '.js', '.ts'],
+    resolve: ['.svelte', '.js', '.ts', '.json'],
     entries: [
 	{find: '', replacement: 'src/'},
 	{find: 'components', replacement: 'src/components'},
 	{find: 'routes', replacement: 'src/routes'},
 	{find: 'class', replacement: 'src/class'},
+	{find: 'data', replacement: 'src/data'},
     ]
 });
 
@@ -78,6 +81,7 @@ export default {
 			rootDir: './src',
 		}),
 		aliases,
+		json(),
 
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
